@@ -1,3 +1,4 @@
+// @ts-nocheck
 /* ------------------------------ TASK 2 ----------------------------
 Parašykite JS kodą, kuris skaičiuos kiek kartų buvo paspaustas mygtukas
 su tekstu "CLICK ME". Paspaudimų rezultatas turi būti matomas dešinėje

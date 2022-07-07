@@ -12,3 +12,7 @@ turėti bent minimalų stilių ir būti responsive;
 -------------------------------------------------------------------------- */
 
 const ENDPOINT = 'https://api.github.com/users';
+
+let message = document.querySelector('#message')
+
+let output = document.querySelector('#output')
