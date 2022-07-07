@@ -22,14 +22,14 @@ function calcWeightLb(weight) {
 
 let form = document.querySelector('form')
 
-        form.addEventListener('submit', () => {
-            event.preventDefault()
+form.addEventListener('submit', () => {
+    event.preventDefault()
 
-            let weight = document.querySelector('input[id="search"]').value 
+    let weight = document.querySelector('input[id="search"]').value 
 
-            let output = document.querySelector('#output')
+    let output = document.querySelector('#output')
             
-            output.innerHTML = calcWeightLb(weight)
-            output.style.textAlign = 'center'
-            output.style.fontSize = '35px'
-        })
+    output.innerHTML = calcWeightLb(weight)
+    output.style.textAlign = 'center'
+    output.style.fontSize = '35px'
+})
