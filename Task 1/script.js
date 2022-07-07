@@ -1,3 +1,4 @@
+// @ts-nocheck
 /* ------------------------------ TASK 1 ----------------------------
 Parašykite JS kodą, kuris leis vartotojui įvesti svorį kilogramais ir
 pamatyti jo pateikto svorio kovertavimą į:
@@ -23,7 +24,7 @@ function calcWeightLb(weight) {
 let form = document.querySelector('form')
 
 form.addEventListener('submit', () => {
-    event.preventDefault()
+    e.preventDefault()
 
     let weight = document.querySelector('input[id="search"]').value 
 
