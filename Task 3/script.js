@@ -34,9 +34,12 @@ btn.addEventListener('click', () => {
         }
     
         generateHtmlCard() {
-            return `<div class="users">
-                    <div id="username">${this.getLogin()}</div>
-                    <img src="${this.avatar_url}" alt="">`
+            return `
+                <div class="users">
+                <div id="username">${this.getLogin()}</div>
+                <img src="${this.avatar_url}" alt="">
+                </div>
+                `
         }
     }
 
