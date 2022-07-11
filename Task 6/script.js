@@ -27,7 +27,7 @@ class UserName {
 }
 
 function getUserAverageAge(users){
-  return Math.round((users.reduce((sum, {age}) => (sum + age), 0))/users.length)
+  return ((users.reduce((sum, {age}) => (sum + age), 0))/users.length).toFixed(2)
  }
 
 console.log(`Visų vartotojų amžiaus vidurkis ${getUserAverageAge(users)} metai`)
