@@ -49,11 +49,12 @@ btn.addEventListener('click', () => {
         }
     
         let newData = []
-    
+        let output = document.querySelector('#output')
+        
         data.forEach(item => {
             let newUser = new User(item.login, item.avatar_url)
     
-            newdata.push(newUser)
+            newData.push(newUser)
         })
     
         newData.forEach(user => {

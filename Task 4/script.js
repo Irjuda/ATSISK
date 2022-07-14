@@ -9,6 +9,54 @@ Pastaba: Sukurta kortelė, kurioje yra informacija apie automobilį (brand), tur
 turėti bent minimalų stilių ir būti responsive;
 -------------------------------------------------------------------------- */
 
-const ENDPOINT = 'cars.json';
+fetch('./cars.json')
+    .then(response => response.json())
+    .then(result => {
+        console.log(result)
+        getCars(result)
+    })
+    .catch(error => console.log('klaida: ' + error))
 
-console.log(endpoint)
+function getCars(data) {
+    class Car {
+        constructor(brand) {
+            this.brand = brand
+        }
+
+        setModels(models) {
+            this.models = models
+        }
+
+        getModelsList() {
+            let models = this.models.map(item => {
+                return `
+                    <li>${item.models}</li>
+                    `
+            })
+        }
+
+        generateBrandCard() {
+            return `
+                <div class='cars'>
+                <div id="brand">${this.brand}</div>
+                <div id="models">${this.getModelsList()}</div>  
+                </div>               
+                `
+        }
+    }
+
+    let newData = []
+    let output = document.querySelector('#output')
+    
+    data.forEach(item => {
+        let newCar = new Car(item.brand)
+        newCar.setModels(item.models)
+    
+        newData.push(newCar)
+    })
+    
+    newData.forEach(user => {
+        // @ts-ignore
+        output.innerHTML += user.generateBrandCard()
+    })
+}

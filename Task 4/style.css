@@ -27,3 +27,23 @@
   margin-top: 50px;
   color: #333;
 }
+
+#output {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 100px;
+}
+
+.cars {
+  width: 250px;
+  margin: 5px;
+  background: olive;
+  border-radius: 10px;
+  text-align: center;
+  color: white;
+  padding: 10px;
+}
+
+
