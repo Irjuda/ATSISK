@@ -9,50 +9,59 @@ Paspaudus mygtuką "Show users":
 
 Pastaba: Sukurta kortelė, kurioje yra pateikiama vartotojo informacija, turi 
 turėti bent minimalų stilių ir būti responsive;
+
+1. Gauti duomenis +
+2. 
 -------------------------------------------------------------------------- */
 const ENDPOINT = 'https://api.github.com/users';
-
-let btn = document.querySelector('#btn')
-
-let message = document.querySelector('#message')
-
-let output = document.querySelector('#output')
 
 // @ts-ignore
 btn.addEventListener('click', () => {
     // @ts-ignore
     message.innerHTML = null
 
-    class User {
-        constructor(login, avatar_url) {
-            this.login = login
-            this.avatar_url = avatar_url
-        }
+    fetch('https://api.github.com/users')
+        .then(response => response.json())
+        .then(result => {
+            console.log(result)
+            createUserCard(result)
+        })
+        .catch(error => console.log('klaida: ' + error))
 
-        getLogin() {
-            return this.login
+    let users = []
+    
+    function createUserCard(data) {
+        class User {
+            constructor(login, avatar_url) {
+                this.login = login
+                this.avatar_url = avatar_url
+            }
+    
+            getLogin() {
+                return this.login
+            }
+        
+            generateHtmlCard() {
+                return `
+                    <div class="users">
+                    <div id="username">${this.getLogin()}</div>
+                    <img src="${this.avatar_url}" alt="">
+                    </div>
+                    `
+            }
         }
     
-        generateHtmlCard() {
-            return `
-                <div class="users">
-                <div id="username">${this.getLogin()}</div>
-                <img src="${this.avatar_url}" alt="">
-                </div>
-                `
-        }
+        let newData = []
+    
+        data.forEach(item => {
+            let newUser = new User(item.login, item.avatar_url)
+    
+            newdata.push(newUser)
+        })
+    
+        newData.forEach(user => {
+            // @ts-ignore
+            output.innerHTML += user.generateHtmlCard()
+        })
     }
-
-    let data = []
-
-    githubUsers.forEach(item => {
-        let newUser = new User(item.login, item.avatar_url)
-
-        data.push(newUser)
-    })
-
-    data.forEach(user => {
-        // @ts-ignore
-        output.innerHTML += user.generateHtmlCard()
-    })
 })
