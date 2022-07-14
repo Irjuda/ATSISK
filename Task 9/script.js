@@ -17,7 +17,7 @@ class Movie {
         this.budget = budget
     }
 
-    getWasExpensive() {
+    /*getWasExpensive() {
         return this.wasExpensive
     }
 
@@ -28,25 +28,20 @@ class Movie {
             else {
                 return this.isExpensive = false
             }
-    }
+    }*/
 }
 
 
 let data = []
 
-let title = 'Vienas namuse'
-let director = 'Chris Columbus'
-let budget = 150000000
+data.forEach((item) =>{
+    let newMovie = new Movie(item.title, item.director, item.budget)
 
-function pushNewMovie(title, director, budget) {
-    data.forEach((item) =>{
-        let newMovie = new Movie(item.title, item.director, item.budget, item.budget)
-
-        data.push(newMovie)  
+    data.push(newMovie)  
         
-        return data
-    })
-}
+    return data
+})
 
+let newMovie = new Movie('vienas namuose', 'Chris Columbus', 123)
 
 console.log(data)
